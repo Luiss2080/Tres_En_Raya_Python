@@ -7,6 +7,7 @@ class AlgoritmoMinimax:
         self.simbolo_maximizador = tablero_juego.simbolo_jugador_ia  # 'O'
         self.simbolo_minimizador = tablero_juego.simbolo_jugador_humano  # 'X'
     
+    #Evalua el estado del puntaje de alfa y beta
     def evaluar_estado_terminal(self, profundidad):
         """Evalúa el estado terminal del juego"""
         ganador = self.tablero.verificar_ganador()
@@ -17,19 +18,11 @@ class AlgoritmoMinimax:
             return profundidad - 10
         else:  # Empate
             return 0
-    
+        
+    #Establece los puntos +10 (IA) y -10 (Humano)
     def minimax(self, profundidad, es_turno_maximizador, alfa=-math.inf, beta=math.inf):
         """
         Algoritmo Minimax con poda alfa-beta
-        
-        Args:
-            profundidad: Nivel actual en el árbol de búsqueda
-            es_turno_maximizador: True si es turno del maximizador (IA)
-            alfa: Mejor valor encontrado hasta ahora para el maximizador
-            beta: Mejor valor encontrado hasta ahora para el minimizador
-        
-        Returns:
-            La mejor puntuación posible para la posición actual
         """
         # Verificar estados terminales
         ganador = self.tablero.verificar_ganador()
@@ -84,6 +77,7 @@ class AlgoritmoMinimax:
             
             return valor_minimo
     
+    #Analiza el estado del juego para determinar el mejor movimiento
     def obtener_mejor_movimiento_ia(self):
         """
         Encuentra el mejor movimiento para la IA usando Minimax
@@ -121,6 +115,7 @@ class AlgoritmoMinimax:
         
         return mejor_movimiento
     
+    #Ordena los movimientos por prioridad estratégica
     def obtener_movimientos_ordenados(self):
         """
         Ordena los movimientos por prioridad estratégica
@@ -144,6 +139,7 @@ class AlgoritmoMinimax:
         
         return movimientos_ordenados
     
+    #Analiza la posición actual del tablero
     def analizar_posicion_actual(self):
         """
         Analiza la posición actual del tablero

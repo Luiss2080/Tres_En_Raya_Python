@@ -204,4 +204,4 @@ El código está claramente dividido por funcionalidades:
 - ✅ **Fácil mantenimiento**: Cada archivo tiene un propósito claro
 - ✅ **Fácil testing**: Puedes probar la lógica sin la interfaz
 - ✅ **Fácil extensión**: Agregar nuevos efectos o modos es sencillo
-- ✅ **Fácil comprensión**: Los nombres de archivos indican su contenido
+- ✅ **Fácil comprensión**: Los nombres de archivos indican su contenido.

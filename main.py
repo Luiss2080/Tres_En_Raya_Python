@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Tres en Raya con IA Minimax
 Punto de entrada principal del juego
