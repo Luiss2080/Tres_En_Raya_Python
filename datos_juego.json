@@ -1,0 +1,79 @@
+{
+  "estadisticas": {
+    "partidas_jugadas": 8,
+    "victorias": 0,
+    "derrotas": 5,
+    "empates": 3,
+    "tiempo_total_jugado": 90.8346778869629,
+    "mejor_tiempo_victoria": Infinity,
+    "racha_actual": 0,
+    "mejor_racha": 0,
+    "primer_juego": "2025-09-04T13:06:48.873003",
+    "ultimo_juego": "2025-09-04T14:38:02.937586",
+    "modos_jugados": {
+      "clasico": 4
+    },
+    "dificultades_vencidas": {},
+    "historial_partidas": [
+      {
+        "fecha": "2025-09-04T13:06:48.873003",
+        "resultado": "empate",
+        "tiempo": 34.0,
+        "movimientos": 4
+      },
+      {
+        "fecha": "2025-09-04T13:06:58.809816",
+        "resultado": "empate",
+        "tiempo": 7.5,
+        "movimientos": 4
+      },
+      {
+        "fecha": "2025-09-04T13:09:19.813360",
+        "resultado": "empate",
+        "tiempo": 10.8,
+        "movimientos": 4
+      },
+      {
+        "fecha": "2025-09-04T13:19:39.009135",
+        "resultado": "derrota",
+        "tiempo": 6.9,
+        "movimientos": 3
+      },
+      {
+        "fecha": "2025-09-04T14:31:08.482959",
+        "resultado": "derrota",
+        "modo": "clasico",
+        "tiempo": 6.742483139038086,
+        "movimientos": 3,
+        "ia_nivel": "normal"
+      },
+      {
+        "fecha": "2025-09-04T14:32:40.905501",
+        "resultado": "derrota",
+        "modo": "clasico",
+        "tiempo": 5.59089469909668,
+        "movimientos": 3,
+        "ia_nivel": "normal"
+      },
+      {
+        "fecha": "2025-09-04T14:37:23.592418",
+        "resultado": "derrota",
+        "modo": "clasico",
+        "tiempo": 10.15773892402649,
+        "movimientos": 4,
+        "ia_nivel": "normal"
+      },
+      {
+        "fecha": "2025-09-04T14:38:02.937586",
+        "resultado": "derrota",
+        "modo": "clasico",
+        "tiempo": 9.143561124801636,
+        "movimientos": 3,
+        "ia_nivel": "normal"
+      }
+    ]
+  },
+  "configuracion": {
+    "fps_objetivo": 60
+  }
+}
