@@ -1,22 +1,63 @@
 # 🎮 Tres en Raya con IA Minimax
 
-Un juego de Tres en Raya implementado en Python con Pygame, que incluye una IA invencible basada en el algoritmo Minimax.
+Un juego de Tres en Raya profesional implementado en Python con Pygame, que incluye una IA invencible basada en el algoritmo Minimax con poda alfa-beta. El proyecto está diseñado con arquitectura modular y principios de código limpio.
 
-## 📂 Estructura del Proyecto
+## ✨ Características Principales
+
+- 🤖 **IA Invencible**: Algoritmo Minimax con poda alfa-beta
+- 🎨 **Interfaz Moderna**: Gráficos fluidos con Pygame
+- � **Sistema de Estadísticas**: Tracking completo de partidas y rendimiento
+- 🎯 **Tutorial Interactivo**: Aprende a jugar paso a paso
+- ⚡ **Efectos Visuales**: Animaciones suaves y efectos de partículas
+- 📱 **Navegación Intuitiva**: Sistema de ventanas con navegación hacia atrás
+- 💾 **Persistencia de Datos**: Guarda automáticamente estadísticas y configuración
+- 🎮 **Controles Completos**: Soporte para teclado y ratón
+
+## 🚀 Instalación Rápida
+
+### Prerrequisitos
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/Luiss2080/Tres_En_Raya.git
+   cd Tres_En_Raya
+   ```
+
+2. **Instalar dependencias**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Ejecutar el juego**:
+   ```bash
+   python main.py
+   ```
+
+## 📦 Dependencias
+
+- `pygame==2.5.2` - Motor gráfico y de eventos
+- `numpy==1.24.3` - Cálculos matemáticos optimizados
+
+## �📂 Estructura del Proyecto
 
 ```
-TresEnRaya/
-├── main.py                      # 🚀 Punto de entrada principal del juego
+Tres_En_Raya/
+├── main.py                      # 🚀 Punto de entrada principal
 ├── requirements.txt             # 📦 Dependencias del proyecto
-├── datos_juego.json             # 💾 Datos del juego (estadísticas + configuración)
-├── logica/                      # 🧠 Lógica del juego y algoritmos
+├── configuracion_juego.json     # ⚙️ Configuración del juego
+├── datos_juego.json             # 💾 Estadísticas y datos persistentes
+├── logica/                      # 🧠 Lógica de negocio
 │   ├── logica_tablero.py       # 🎯 Reglas del tablero y validaciones
 │   └── inteligencia_artificial.py # 🤖 IA con algoritmo Minimax
-└── presentacion/               # 🎨 Interfaz gráfica y visualización
+└── presentacion/               # 🎨 Interfaz gráfica
     ├── motor_principal.py      # 🔧 Motor principal del juego
-    ├── sistema_navegacion.py   # 🧭 Sistema de navegación entre ventanas
+    ├── sistema_navegacion.py   # 🧭 Sistema de navegación
     ├── menu_principal.py       # 📱 Menú principal y estadísticas
-    ├── juego_clasico.py        # 🎮 Ventana del juego clásico
+    ├── juego_clasico.py        # 🎮 Pantalla de juego principal
     ├── ventanas_auxiliares.py  # 🔧 Tutorial, historial y pausa
     └── efectos_multimedia.py   # ✨ Efectos visuales y animaciones
 ```
@@ -165,43 +206,194 @@ El archivo `sistema_navegacion.py` maneja:
    python main.py
    ```
 
-## 🎯 Controles del Juego
+## � Cómo Jugar
 
-- **Ratón**: Hacer click en casillas para jugar
-- **ESC**: Pausar el juego
-- **R**: Reiniciar partida
+### Controles Básicos
+- **Ratón**: Haz clic en cualquier casilla vacía para colocar tu símbolo (X)
+- **ESC**: Pausar el juego en cualquier momento
+- **R**: Reiniciar la partida actual
 - **M**: Volver al menú principal
-- **F11**: Pantalla completa
-- **F3**: Mostrar/ocultar FPS
+- **F11**: Alternar pantalla completa
+- **F3**: Mostrar/ocultar contador de FPS
 
-## 💾 Archivos de Datos
+### Reglas del Juego
+1. El jugador siempre juega con **X** y comienza primero
+2. La IA juega con **O** y responde automáticamente
+3. Gana quien consiga **tres símbolos en línea** (horizontal, vertical o diagonal)
+4. Si se llenan todas las casillas sin ganador, es **empate**
 
-- **`datos_juego.json`**: Estadísticas del jugador y configuración básica
+### Navegación del Menú
+- **JUGAR**: Iniciar nueva partida contra la IA
+- **TUTORIAL**: Aprende las reglas paso a paso
+- **ESTADÍSTICAS**: Ver tu historial de partidas
+- **SALIR**: Cerrar el juego
 
-## 🧑‍💻 Para Desarrolladores Principiantes
+## 🤖 Sobre la Inteligencia Artificial
 
-### Patrón de Arquitectura: **Separación por Responsabilidades**
+### Algoritmo Minimax
+La IA utiliza el famoso algoritmo **Minimax con poda alfa-beta** que:
 
-El código está claramente dividido por funcionalidades:
+- 🔍 **Explora todos los movimientos posibles** hasta el final del juego
+- 🎯 **Evalúa cada posición** usando una función heurística optimizada
+- ⚡ **Optimiza el cálculo** eliminando ramas innecesarias (poda alfa-beta)
+- 🏆 **Garantiza el mejor movimiento** matemáticamente posible
 
-1. **`logica/`** = **Modelo**: Las reglas puras del juego, sin interfaz
-   - No depende de pygame ni gráficos
-   - Se puede probar independientemente
-   - Contiene la lógica de negocio
+### Estrategia de la IA
+1. **Prioridad Centro**: 5 puntos - Controla el máximo de líneas
+2. **Prioridad Esquinas**: 3 puntos - Múltiples oportunidades de victoria
+3. **Prioridad Laterales**: 2 puntos - Menos versatilidad pero necesarios
 
-2. **`presentacion/`** = **Vista + Controlador**: Lo que ve y controla el usuario
-   - Maneja pygame y gráficos
-   - Procesa eventos del usuario
-   - Coordina la lógica con la visualización
+> **¿Se puede ganar?** Técnicamente no, pero puedes conseguir empates si juegas perfectamente.
 
-3. **Principio de Responsabilidad Única**: 
-   - Cada archivo tiene **una sola razón para cambiar**
-   - `logica_tablero.py` solo cambia si cambian las reglas
-   - `efectos_multimedia.py` solo cambia si cambian los efectos
-   - `inteligencia_artificial.py` solo cambia si mejora la IA
+## 📊 Sistema de Estadísticas
 
-### Ventajas de esta Estructura:
-- ✅ **Fácil mantenimiento**: Cada archivo tiene un propósito claro
-- ✅ **Fácil testing**: Puedes probar la lógica sin la interfaz
-- ✅ **Fácil extensión**: Agregar nuevos efectos o modos es sencillo
-- ✅ **Fácil comprensión**: Los nombres de archivos indican su contenido.
+El juego trackea automáticamente:
+
+- 🎮 **Partidas jugadas** - Total de juegos completados
+- 🏆 **Victorias/Derrotas/Empates** - Resultados detallados
+- ⏱️ **Tiempo de juego** - Duración total y mejor tiempo
+- 🔥 **Rachas** - Secuencias de victorias consecutivas
+- 📅 **Historial** - Registro completo de partidas con fechas
+- 🎯 **Primeros movimientos** - Análisis de estrategias iniciales
+
+## � Archivos de Configuración
+
+### `configuracion_juego.json`
+```json
+{
+  "fps_objetivo": 60,        // FPS target del juego
+  "mostrar_fps": false,      // Mostrar contador FPS
+  "auto_guardar": true,      // Guardar automáticamente
+  "modo_actual": "clasico"   // Modo de juego actual
+}
+```
+
+### `datos_juego.json`
+Almacena todas las estadísticas del jugador y el historial de partidas. Se actualiza automáticamente después de cada juego.
+
+## 🏗️ Arquitectura del Código
+
+### Patrón de Diseño: **Separación de Responsabilidades**
+
+El proyecto sigue principios de **código limpio** con clara separación entre:
+
+#### 📁 `logica/` - Capa de Negocio
+- **Sin dependencias gráficas** - Lógica pura del juego
+- **Completamente testeable** - Se puede probar independientemente
+- **Reutilizable** - Fácil de portar a otras interfaces
+
+#### 📁 `presentacion/` - Capa de Presentación
+- **Interfaz gráfica** - Todo lo relacionado con Pygame
+- **Eventos del usuario** - Manejo de input y navegación
+- **Efectos visuales** - Animaciones y multimedia
+
+### Componentes Clave
+
+#### 🧠 `logica/logica_tablero.py`
+```python
+class TresEnRaya:
+    # Matriz 3x3 del tablero
+    # Validación de movimientos
+    # Detección de victoria/empate
+    # Control de turnos
+```
+
+#### 🤖 `logica/inteligencia_artificial.py`
+```python
+class AlgoritmoMinimax:
+    # Implementación del algoritmo Minimax
+    # Poda alfa-beta para optimización
+    # Función de evaluación heurística
+    # Cálculo del mejor movimiento
+```
+
+#### 🎮 `presentacion/motor_principal.py`
+```python
+class MotorJuegoAvanzado:
+    # Inicialización de Pygame
+    # Bucle principal del juego
+    # Gestión de eventos globales
+    # Control de FPS y rendimiento
+```
+
+#### 🧭 `presentacion/sistema_navegacion.py`
+```python
+class SistemaNavegacion:
+    # Gestión de múltiples ventanas
+    # Navegación hacia atrás
+    # Tema visual consistente
+    # Estado global del juego
+```
+
+## 🚀 Para Desarrolladores
+
+### Extender el Juego
+
+1. **Nuevos Modos de Juego**:
+   - Crea una nueva clase en `presentacion/`
+   - Hereda de `VentanaBase`
+   - Regístrala en `sistema_navegacion.py`
+
+2. **Mejorar la IA**:
+   - Modifica `logica/inteligencia_artificial.py`
+   - Ajusta la función de evaluación
+   - Implementa diferentes niveles de dificultad
+
+3. **Nuevos Efectos Visuales**:
+   - Edita `presentacion/efectos_multimedia.py`
+   - Agrega nuevas animaciones
+   - Crea sistemas de partículas más complejos
+
+### Principios Aplicados
+
+- ✅ **Principio de Responsabilidad Única** - Cada clase tiene un propósito
+- ✅ **Separación de Concerns** - Lógica separada de presentación
+- ✅ **Código Autodocumentado** - Nombres descriptivos y claros
+- ✅ **Configuración Externa** - Parámetros en archivos JSON
+- ✅ **Manejo de Errores** - Try/catch apropiados
+
+## 🐛 Resolución de Problemas
+
+### Error: "Pygame no está instalado"
+```bash
+pip install pygame==2.5.2
+```
+
+### Error: "No se puede encontrar el módulo numpy"
+```bash
+pip install numpy==1.24.3
+```
+
+### El juego no inicia
+1. Verifica que tienes Python 3.8+
+2. Asegúrate de estar en el directorio correcto
+3. Ejecuta: `python --version` y `pip list`
+
+### Rendimiento lento
+- Reduce FPS en `configuracion_juego.json`
+- Cierra otras aplicaciones pesadas
+- Actualiza controladores gráficos
+
+## 📝 Licencia
+
+Este proyecto está bajo licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente.
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas! Por favor:
+
+1. Haz fork del proyecto
+2. Crea una branch para tu feature
+3. Commit tus cambios
+4. Push a la branch
+5. Abre un Pull Request
+
+## 📞 Contacto
+
+- **Desarrollador**: Luis
+- **GitHub**: [@Luiss2080](https://github.com/Luiss2080)
+- **Proyecto**: [Tres_En_Raya](https://github.com/Luiss2080/Tres_En_Raya)
+
+---
+
+⭐ **¡Dale una estrella al proyecto si te gusta!** ⭐
